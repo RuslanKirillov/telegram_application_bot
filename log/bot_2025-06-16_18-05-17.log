@@ -1,0 +1,22 @@
+2025-06-16 18:05:17,380 - root - INFO - Бот запущен
+2025-06-16 18:05:17,388 - aiogram.dispatcher - INFO - Start polling
+2025-06-16 18:05:18,130 - aiogram.dispatcher - INFO - Run polling for bot @stavich_bot id=6899209881 - 'Дед Ставыч'
+2025-06-16 18:05:29,382 - aiogram.event - INFO - Update id=824225212 is handled. Duration 1186 ms by bot id=6899209881
+2025-06-16 18:05:32,132 - aiogram.event - INFO - Update id=824225213 is handled. Duration 413 ms by bot id=6899209881
+2025-06-16 18:05:50,756 - aiogram.event - INFO - Update id=824225214 is handled. Duration 308 ms by bot id=6899209881
+2025-06-16 18:05:52,360 - aiogram.event - INFO - Update id=824225215 is handled. Duration 198 ms by bot id=6899209881
+2025-06-16 18:05:58,734 - aiogram.event - INFO - Update id=824225216 is handled. Duration 1050 ms by bot id=6899209881
+2025-06-16 18:06:01,435 - aiogram.event - INFO - Update id=824225217 is handled. Duration 292 ms by bot id=6899209881
+2025-06-16 18:06:12,900 - aiogram.event - INFO - Update id=824225218 is handled. Duration 823 ms by bot id=6899209881
+2025-06-16 18:06:24,372 - aiogram.event - INFO - Update id=824225219 is handled. Duration 244 ms by bot id=6899209881
+2025-06-16 18:06:26,906 - aiogram.event - INFO - Update id=824225220 is handled. Duration 207 ms by bot id=6899209881
+2025-06-16 18:06:29,227 - aiogram.event - INFO - Update id=824225221 is handled. Duration 262 ms by bot id=6899209881
+2025-06-16 18:06:31,097 - aiogram.event - INFO - Update id=824225222 is handled. Duration 503 ms by bot id=6899209881
+2025-06-16 18:06:33,076 - aiogram.event - INFO - Update id=824225223 is handled. Duration 212 ms by bot id=6899209881
+2025-06-16 18:15:23,586 - aiogram.event - INFO - Update id=824225224 is handled. Duration 833 ms by bot id=6899209881
+2025-06-16 18:15:50,100 - aiogram.event - INFO - Update id=824225225 is handled. Duration 228 ms by bot id=6899209881
+2025-06-16 18:21:19,538 - aiogram.dispatcher - WARNING - Received SIGINT signal
+2025-06-16 18:21:19,542 - aiogram.dispatcher - INFO - Polling stopped for bot @stavich_bot id=6899209881 - 'Дед Ставыч'
+2025-06-16 18:21:19,542 - aiogram.dispatcher - INFO - Polling stopped
+2025-06-16 18:21:19,912 - asyncio - ERROR - Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x104c96490>

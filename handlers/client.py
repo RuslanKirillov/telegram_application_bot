@@ -8,6 +8,7 @@ from database.models import Application
 from config import config
 from sqlalchemy import insert
 from aiogram import Bot
+from settings_manager import get_setting  # Импорт менеджера настроек
 
 client_router = Router()
 
@@ -22,6 +23,12 @@ async def start(message: types.Message, state: FSMContext):
     if message.from_user.id in config.ADMIN_IDS:
         await message.answer("Вы вошли как администратор. Используйте /admin для панели управления.")
     else:
+        # Получаем приветственное сообщение из settings.json
+        greeting = get_setting(
+            "greeting_message",
+            "Добро пожаловать! Пожалуйста, поделитесь вашим номером телефона, нажав кнопку ниже:"
+        )
+
         # Отправляем уведомление админам, что пользователь авторизовался
         for admin_id in config.ADMIN_IDS:
             try:
@@ -41,10 +48,7 @@ async def start(message: types.Message, state: FSMContext):
             resize_keyboard=True,
             one_time_keyboard=True
         )
-        await message.answer(
-            "Добро пожаловать! Пожалуйста, поделитесь вашим номером телефона, нажав кнопку ниже:",
-            reply_markup=keyboard
-        )
+        await message.answer(greeting, reply_markup=keyboard)
         await state.set_state(ApplicationForm.waiting_for_phone)
 
 @client_router.message(ApplicationForm.waiting_for_phone, F.contact)
@@ -77,7 +81,11 @@ async def process_phone_contact(message: types.Message, state: FSMContext):
 
 @client_router.message(ApplicationForm.waiting_for_phone)
 async def process_phone_text(message: types.Message, state: FSMContext):
-    phone = message.text
+    phone = message.text.strip()
+    if not phone:
+        await message.answer("Пожалуйста, отправьте корректный номер телефона.")
+        return
+
     async with db.async_session() as session:
         stmt = insert(Application).values(
             user_id=message.from_user.id,

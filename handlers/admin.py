@@ -1,6 +1,8 @@
 from aiogram import Router, types, F
 from aiogram.filters import Command
 from aiogram.types import ReplyKeyboardMarkup, KeyboardButton, InlineKeyboardMarkup, InlineKeyboardButton
+from aiogram.fsm.context import FSMContext
+from aiogram.fsm.state import State, StatesGroup
 from datetime import datetime
 
 from database.db import db
@@ -9,8 +11,14 @@ from sqlalchemy import select, update
 from services.logger import log_admin_action
 from config import config
 
+from settings_manager import get_setting, set_setting  # Импорт менеджера настроек
+
 # Создаем роутер
 admin_router = Router()
+
+# FSM состояния для настроек
+class SettingsStates(StatesGroup):
+    waiting_for_greeting = State()
 
 @admin_router.message(Command("admin"))
 async def admin_panel(message: types.Message):
@@ -36,7 +44,6 @@ async def admin_panel(message: types.Message):
     
     await message.answer("Панель администратора:", reply_markup=keyboard)
 
-# Остальные обработчики остаются без изменений
 @admin_router.message(F.text == "Активные заявки")
 async def show_active_applications(message: types.Message):
     async with db.async_session() as session:
@@ -62,11 +69,42 @@ async def show_active_applications(message: types.Message):
 
 @admin_router.message(F.text == "Статистика")
 async def show_closed_applications(message: types.Message):
-    pass
+    # Здесь можно добавить вашу реализацию статистики
+    await message.answer("Функционал статистики пока не реализован.")
 
 @admin_router.message(F.text == "Настройки")
-async def settings(message: types.Message):
-    pass
+async def settings_menu(message: types.Message):
+    keyboard = ReplyKeyboardMarkup(
+        keyboard=[
+            [KeyboardButton(text="Изменить приветственное сообщение")],
+            [KeyboardButton(text="Назад в панель администратора")]
+        ],
+        resize_keyboard=True
+    )
+    await message.answer("Меню настроек:", reply_markup=keyboard)
+
+@admin_router.message(F.text == "Изменить приветственное сообщение")
+async def change_greeting_start(message: types.Message, state: FSMContext):
+    current_greeting = get_setting("greeting_message")
+    await message.answer(f"Текущее приветственное сообщение:\n\n{current_greeting}\n\nВведите новое:")
+    await state.set_state(SettingsStates.waiting_for_greeting)
+
+@admin_router.message(SettingsStates.waiting_for_greeting)
+async def process_new_greeting(message: types.Message, state: FSMContext):
+    new_greeting = message.text.strip()
+    if not new_greeting:
+        await message.answer("Сообщение не может быть пустым. Попробуйте снова.")
+        return
+
+    set_setting("greeting_message", new_greeting)
+    await message.answer(f"Приветственное сообщение обновлено на:\n\n{new_greeting}")
+    await state.clear()
+    # Возвращаемся в меню настроек
+    await settings_menu(message)
+
+@admin_router.message(F.text == "Назад в панель администратора")
+async def back_to_admin_panel(message: types.Message):
+    await admin_panel(message)
 
 @admin_router.message(F.text == "Закрытые заявки")
 async def show_closed_applications(message: types.Message):
