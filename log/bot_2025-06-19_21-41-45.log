@@ -1,0 +1,6 @@
+2025-06-19 21:41:45,963 - root - INFO - Бот запущен
+2025-06-19 21:41:45,964 - aiogram.dispatcher - INFO - Start polling
+2025-06-19 21:41:46,477 - aiogram.dispatcher - INFO - Run polling for bot @stavich_bot id=6899209881 - 'Дед Ставыч'
+2025-06-19 21:41:51,981 - aiogram.dispatcher - WARNING - Received SIGINT signal
+2025-06-19 21:41:51,982 - aiogram.dispatcher - INFO - Polling stopped for bot @stavich_bot id=6899209881 - 'Дед Ставыч'
+2025-06-19 21:41:51,982 - aiogram.dispatcher - INFO - Polling stopped

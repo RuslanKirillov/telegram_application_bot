@@ -1,0 +1,93 @@
+2025-06-18 14:57:14,099 - root - INFO - Бот запущен
+2025-06-18 14:57:14,099 - aiogram.dispatcher - INFO - Start polling
+2025-06-18 14:57:14,833 - aiogram.dispatcher - INFO - Run polling for bot @stavich_bot id=6899209881 - 'Дед Ставыч'
+2025-06-18 14:57:36,778 - aiogram.event - INFO - Update id=824225238 is not handled. Duration 2 ms by bot id=6899209881
+2025-06-18 14:57:39,923 - aiogram.event - INFO - Update id=824225239 is handled. Duration 614 ms by bot id=6899209881
+2025-06-18 14:57:47,303 - aiogram.event - INFO - Update id=824225240 is handled. Duration 186 ms by bot id=6899209881
+2025-06-18 14:57:47,548 - aiogram.event - INFO - Update id=824225241 is handled. Duration 192 ms by bot id=6899209881
+2025-06-18 14:57:49,332 - aiogram.event - INFO - Update id=824225242 is handled. Duration 189 ms by bot id=6899209881
+2025-06-18 14:57:50,904 - aiogram.event - INFO - Update id=824225243 is handled. Duration 201 ms by bot id=6899209881
+2025-06-18 14:58:03,166 - aiogram.event - INFO - Update id=824225244 is handled. Duration 1014 ms by bot id=6899209881
+2025-06-18 14:58:08,007 - aiogram.event - INFO - Update id=824225245 is handled. Duration 616 ms by bot id=6899209881
+2025-06-18 14:58:21,953 - aiogram.event - INFO - Update id=824225246 is handled. Duration 258 ms by bot id=6899209881
+2025-06-18 15:00:04,882 - aiogram.event - INFO - Update id=824225247 is handled. Duration 729 ms by bot id=6899209881
+2025-06-18 15:00:07,741 - asyncio - ERROR - Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x113788410>
+2025-06-18 15:00:07,744 - asyncio - ERROR - Unclosed connector
+connections: ['deque([(<aiohttp.client_proto.ResponseHandler object at 0x113751610>, 560741.269371625)])']
+connector: <aiohttp.connector.TCPConnector object at 0x113788050>
+2025-06-18 15:00:07,975 - aiogram.event - INFO - Update id=824225248 is handled. Duration 1292 ms by bot id=6899209881
+2025-06-18 15:00:10,389 - asyncio - ERROR - Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x1131ed810>
+2025-06-18 15:00:10,389 - asyncio - ERROR - Unclosed connector
+connections: ['deque([(<aiohttp.client_proto.ResponseHandler object at 0x113751850>, 560743.917299541)])']
+connector: <aiohttp.connector.TCPConnector object at 0x113790180>
+2025-06-18 15:00:10,567 - aiogram.event - INFO - Update id=824225249 is handled. Duration 1038 ms by bot id=6899209881
+2025-06-18 15:00:14,037 - aiogram.event - INFO - Update id=824225250 is handled. Duration 594 ms by bot id=6899209881
+2025-06-18 15:00:16,343 - asyncio - ERROR - Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x1131ef4d0>
+2025-06-18 15:00:16,344 - asyncio - ERROR - Unclosed connector
+connections: ['deque([(<aiohttp.client_proto.ResponseHandler object at 0x113751970>, 560749.871536458)])']
+connector: <aiohttp.connector.TCPConnector object at 0x113794180>
+2025-06-18 15:00:16,599 - aiogram.event - INFO - Update id=824225251 is handled. Duration 1147 ms by bot id=6899209881
+2025-06-18 15:00:17,613 - asyncio - ERROR - Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x1131ef4d0>
+2025-06-18 15:00:17,614 - asyncio - ERROR - Unclosed connector
+connections: ['deque([(<aiohttp.client_proto.ResponseHandler object at 0x113751790>, 560751.142851166)])']
+connector: <aiohttp.connector.TCPConnector object at 0x11319f5c0>
+2025-06-18 15:00:17,954 - aiogram.event - INFO - Update id=824225252 is handled. Duration 1146 ms by bot id=6899209881
+2025-06-18 15:00:19,407 - asyncio - ERROR - Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x1131ef4d0>
+2025-06-18 15:00:19,408 - asyncio - ERROR - Unclosed connector
+connections: ['deque([(<aiohttp.client_proto.ResponseHandler object at 0x113751bb0>, 560752.936669708)])']
+connector: <aiohttp.connector.TCPConnector object at 0x11319f5c0>
+2025-06-18 15:00:19,587 - aiogram.event - INFO - Update id=824225253 is handled. Duration 1062 ms by bot id=6899209881
+2025-06-18 15:05:07,987 - aiogram.event - INFO - Update id=824225254 is handled. Duration 1063 ms by bot id=6899209881
+2025-06-18 15:05:11,539 - aiogram.event - INFO - Update id=824225255 is handled. Duration 890 ms by bot id=6899209881
+2025-06-18 15:05:48,565 - aiogram.event - INFO - Update id=824225256 is handled. Duration 312 ms by bot id=6899209881
+2025-06-18 15:05:52,062 - aiogram.event - INFO - Update id=824225257 is handled. Duration 212 ms by bot id=6899209881
+2025-06-18 15:05:54,933 - aiogram.event - INFO - Update id=824225258 is handled. Duration 235 ms by bot id=6899209881
+2025-06-18 15:05:59,913 - aiogram.event - INFO - Update id=824225259 is handled. Duration 1366 ms by bot id=6899209881
+2025-06-18 15:15:43,475 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientOSError: [Errno 54] Connection reset by peer
+2025-06-18 15:15:43,478 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 6899209881)
+2025-06-18 15:16:46,550 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientOSError: [Errno 54] Connection reset by peer
+2025-06-18 15:16:46,552 - aiogram.dispatcher - WARNING - Sleep for 1.377815 seconds and try again... (tryings = 1, bot id = 6899209881)
+2025-06-18 15:18:14,725 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientOSError: [Errno 54] Connection reset by peer
+2025-06-18 15:18:14,726 - aiogram.dispatcher - WARNING - Sleep for 1.752460 seconds and try again... (tryings = 2, bot id = 6899209881)
+2025-06-18 15:19:18,466 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientOSError: [Errno 54] Connection reset by peer
+2025-06-18 15:19:18,469 - aiogram.dispatcher - WARNING - Sleep for 2.323253 seconds and try again... (tryings = 3, bot id = 6899209881)
+2025-06-18 15:20:19,406 - aiogram.dispatcher - INFO - Connection established (tryings = 4, bot id = 6899209881)
+2025-06-18 15:23:44,801 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - Request timeout error
+2025-06-18 15:23:44,804 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 6899209881)
+2025-06-18 15:23:45,810 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Network is unreachable]
+2025-06-18 15:23:45,810 - aiogram.dispatcher - WARNING - Sleep for 1.347711 seconds and try again... (tryings = 1, bot id = 6899209881)
+2025-06-18 15:23:47,163 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Network is unreachable]
+2025-06-18 15:23:47,163 - aiogram.dispatcher - WARNING - Sleep for 1.967437 seconds and try again... (tryings = 2, bot id = 6899209881)
+2025-06-18 15:24:11,957 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Network is unreachable]
+2025-06-18 15:24:11,958 - aiogram.dispatcher - WARNING - Sleep for 2.453258 seconds and try again... (tryings = 3, bot id = 6899209881)
+2025-06-18 15:24:14,414 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Network is unreachable]
+2025-06-18 15:24:14,414 - aiogram.dispatcher - WARNING - Sleep for 3.144657 seconds and try again... (tryings = 4, bot id = 6899209881)
+2025-06-18 15:24:28,071 - aiogram.dispatcher - INFO - Connection established (tryings = 5, bot id = 6899209881)
+2025-06-18 15:28:53,742 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - Request timeout error
+2025-06-18 15:28:53,744 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 6899209881)
+2025-06-18 15:31:23,700 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [None]
+2025-06-18 15:31:23,706 - aiogram.dispatcher - WARNING - Sleep for 1.423968 seconds and try again... (tryings = 1, bot id = 6899209881)
+2025-06-18 15:33:57,435 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - Request timeout error
+2025-06-18 15:33:57,436 - aiogram.dispatcher - WARNING - Sleep for 1.874139 seconds and try again... (tryings = 2, bot id = 6899209881)
+2025-06-18 15:34:52,377 - aiogram.dispatcher - INFO - Connection established (tryings = 3, bot id = 6899209881)
+2025-06-18 15:58:46,681 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - Request timeout error
+2025-06-18 15:58:46,684 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 6899209881)
+2025-06-18 16:00:08,205 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientOSError: [Errno 54] Connection reset by peer
+2025-06-18 16:00:08,208 - aiogram.dispatcher - WARNING - Sleep for 1.333849 seconds and try again... (tryings = 1, bot id = 6899209881)
+2025-06-18 16:00:21,870 - aiogram.dispatcher - INFO - Connection established (tryings = 2, bot id = 6899209881)
+2025-06-18 16:15:59,871 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - Request timeout error
+2025-06-18 16:15:59,875 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 6899209881)
+2025-06-18 16:16:11,465 - aiogram.dispatcher - INFO - Connection established (tryings = 1, bot id = 6899209881)
+2025-06-18 17:42:46,011 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - Request timeout error
+2025-06-18 17:42:46,014 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 6899209881)
+2025-06-18 17:42:57,548 - aiogram.dispatcher - INFO - Connection established (tryings = 1, bot id = 6899209881)
+2025-06-18 17:43:00,064 - aiogram.dispatcher - WARNING - Received SIGINT signal
+2025-06-18 17:43:00,066 - aiogram.dispatcher - INFO - Polling stopped for bot @stavich_bot id=6899209881 - 'Дед Ставыч'
+2025-06-18 17:43:00,066 - aiogram.dispatcher - INFO - Polling stopped
+2025-06-18 17:43:00,445 - asyncio - ERROR - Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x1131edf90>

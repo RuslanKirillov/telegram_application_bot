@@ -3,16 +3,14 @@ from aiogram.filters import Command
 from aiogram.fsm.context import FSMContext
 from aiogram.fsm.state import State, StatesGroup
 from aiogram.types import ReplyKeyboardMarkup, KeyboardButton, ReplyKeyboardRemove
-from database.db import db
-from database.models import Application
+from database.db import db  # Ваш асинхронный объект сессии
+from database.models import Application, User
 from config import config
-from sqlalchemy import insert
+from sqlalchemy import select
 from aiogram import Bot
-from settings_manager import get_setting  # Импорт менеджера настроек
+from settings_manager import get_setting  # Менеджер настроек
 
 client_router = Router()
-
-# Создаем глобальный бот один раз (лучше в основном файле, но для примера здесь)
 bot = Bot(token=config.BOT_TOKEN)
 
 class ApplicationForm(StatesGroup):
@@ -20,27 +18,40 @@ class ApplicationForm(StatesGroup):
 
 @client_router.message(Command("start"))
 async def start(message: types.Message, state: FSMContext):
+    async with db.async_session() as session:
+        # Проверяем, есть ли пользователь в users
+        result = await session.execute(select(User).where(User.user_id == message.from_user.id))
+        user = result.scalars().first()
+
+        if not user:
+            new_user = User(
+                user_id=message.from_user.id,
+                username=message.from_user.username,
+                first_name=message.from_user.first_name,
+                last_name=message.from_user.last_name
+            )
+            session.add(new_user)
+            await session.commit()
+
     if message.from_user.id in config.ADMIN_IDS:
         await message.answer("Вы вошли как администратор. Используйте /admin для панели управления.")
     else:
-        # Получаем приветственное сообщение из settings.json
         greeting = get_setting(
             "greeting_message",
             "Добро пожаловать! Пожалуйста, поделитесь вашим номером телефона, нажав кнопку ниже:"
         )
 
-        # Отправляем уведомление админам, что пользователь авторизовался
+        # Уведомляем админов о новом пользователе
         for admin_id in config.ADMIN_IDS:
             try:
                 await bot.send_message(
                     chat_id=admin_id,
                     text=f"👤 Пользователь @{message.from_user.username or message.from_user.id} "
-                         f"({message.from_user.first_name}) авторизовался в боте."
+                         f"({message.from_user.first_name}) начал работу с ботом."
                 )
             except Exception as e:
                 print(f"Не удалось отправить уведомление админу {admin_id}: {e}")
 
-        # Создаем клавиатуру с кнопкой запроса контакта
         keyboard = ReplyKeyboardMarkup(
             keyboard=[
                 [KeyboardButton(text="Отправить номер телефона", request_contact=True)]
@@ -55,16 +66,19 @@ async def start(message: types.Message, state: FSMContext):
 async def process_phone_contact(message: types.Message, state: FSMContext):
     phone = message.contact.phone_number
     async with db.async_session() as session:
-        stmt = insert(Application).values(
+        # Создаем заявку с номером телефона
+        new_application = Application(
             user_id=message.from_user.id,
             username=message.from_user.username,
             first_name=message.from_user.first_name,
-            phone_number=phone)
-        result = await session.execute(stmt)
+            phone_number=phone
+        )
+        session.add(new_application)
         await session.commit()
-        application_id = result.inserted_primary_key[0]
+        application_id = new_application.id
 
     await message.answer(f"Спасибо! Ваша заявка №{application_id} принята.", reply_markup=ReplyKeyboardRemove())
+
     for admin_id in config.ADMIN_IDS:
         try:
             await bot.send_message(
@@ -77,6 +91,7 @@ async def process_phone_contact(message: types.Message, state: FSMContext):
             )
         except Exception as e:
             print(f"Не удалось отправить сообщение админу {admin_id}: {e}")
+
     await state.clear()
 
 @client_router.message(ApplicationForm.waiting_for_phone)
@@ -87,16 +102,18 @@ async def process_phone_text(message: types.Message, state: FSMContext):
         return
 
     async with db.async_session() as session:
-        stmt = insert(Application).values(
+        new_application = Application(
             user_id=message.from_user.id,
             username=message.from_user.username,
             first_name=message.from_user.first_name,
-            phone_number=phone)
-        result = await session.execute(stmt)
+            phone_number=phone
+        )
+        session.add(new_application)
         await session.commit()
-        application_id = result.inserted_primary_key[0]
+        application_id = new_application.id
 
     await message.answer(f"Спасибо! Ваша заявка №{application_id} принята.", reply_markup=ReplyKeyboardRemove())
+
     for admin_id in config.ADMIN_IDS:
         try:
             await bot.send_message(
@@ -109,4 +126,5 @@ async def process_phone_text(message: types.Message, state: FSMContext):
             )
         except Exception as e:
             print(f"Не удалось отправить сообщение админу {admin_id}: {e}")
+
     await state.clear()

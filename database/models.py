@@ -4,10 +4,21 @@ from datetime import datetime
 
 Base = declarative_base()
 
+class User(Base):
+    __tablename__ = 'users'
+
+    id = Column(Integer, primary_key=True)
+    user_id = Column(BigInteger, unique=True, nullable=False)  # Telegram ID пользователя
+    username = Column(String(100))
+    first_name = Column(String(100))
+    last_name = Column(String(100))
+    created_at = Column(DateTime, default=datetime.utcnow)
+
 class Application(Base):
     __tablename__ = 'applications'
+
     id = Column(Integer, primary_key=True)
-    user_id = Column(BigInteger, nullable=False)  # заменили Integer на BigInteger
+    user_id = Column(BigInteger, nullable=False)
     username = Column(String(100))
     first_name = Column(String(100), nullable=False)
     phone_number = Column(String(20), nullable=False)
@@ -18,6 +29,7 @@ class Application(Base):
 
 class AdminActionLog(Base):
     __tablename__ = 'admin_actions'
+
     id = Column(Integer, primary_key=True)
     admin_id = Column(Integer, nullable=False)
     admin_username = Column(String(100))
