@@ -3,3 +3,6 @@
 2025-06-19 22:24:17,649 - aiogram.dispatcher - INFO - Run polling for bot @stavich_bot id=6899209881 - 'Дед Ставыч'
 2025-06-19 22:24:27,309 - aiogram.event - INFO - Update id=824225260 is handled. Duration 624 ms by bot id=6899209881
 2025-06-19 22:24:29,547 - aiogram.event - INFO - Update id=824225261 is handled. Duration 204 ms by bot id=6899209881
+2025-06-19 22:33:02,048 - aiogram.dispatcher - WARNING - Received SIGINT signal
+2025-06-19 22:33:02,069 - aiogram.dispatcher - INFO - Polling stopped for bot @stavich_bot id=6899209881 - 'Дед Ставыч'
+2025-06-19 22:33:02,071 - aiogram.dispatcher - INFO - Polling stopped

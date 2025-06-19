@@ -6,7 +6,7 @@ from aiogram.fsm.state import State, StatesGroup
 from datetime import datetime
 
 from database.db import db
-from database.models import Application
+from database.models import Application, User
 from sqlalchemy import select, update
 from services.logger import log_admin_action
 from config import config
@@ -67,10 +67,60 @@ async def show_active_applications(message: types.Message):
             f"📞 Телефон: {app.phone_number}\n🕒 Создана: {app.created_at}\n"
             f"🔹 Статус: {status}", reply_markup=keyboard)
 
-@admin_router.message(F.text == "Статистика")
+@admin_router.message(F.text == "Закрытые заявки")
 async def show_closed_applications(message: types.Message):
-    # Здесь можно добавить вашу реализацию статистики
-    await message.answer("Функционал статистики пока не реализован.")
+    async with db.async_session() as session:
+        result = await session.execute(
+            select(Application).where(Application.is_active == False))
+        applications = result.scalars().all()
+    
+    if not applications:
+        await message.answer("Нет закрытых заявок.")
+        return
+    
+    for app in applications:
+        await message.answer(
+            f"📄 Заявка №{app.id} (ЗАКРЫТА)\n👤 Имя: {app.first_name}\n"
+            f"📞 Телефон: {app.phone_number}\n🕒 Создана: {app.created_at}\n"
+            f"🕒 Закрыта: {app.closed_at}\n👨‍💻 Админ ID: {app.admin_id}")
+
+@admin_router.message(F.text == "Статистика")
+async def statistics_menu(message: types.Message):
+    keyboard = ReplyKeyboardMarkup(
+        keyboard=[
+            [KeyboardButton(text="1. Получить список пользователей")],
+            [KeyboardButton(text="2. Назад в меню")]
+        ],
+        resize_keyboard=True,
+        one_time_keyboard=True
+    )
+    await message.answer("Меню статистики:", reply_markup=keyboard)
+
+@admin_router.message(F.text == "1. Получить список пользователей")
+async def send_user_list(message: types.Message):
+    async with db.async_session() as session:
+        result = await session.execute(select(User))
+        users = result.scalars().all()
+
+    if not users:
+        await message.answer("Пользователи не найдены.")
+        return
+
+    lines = []
+    for idx, user in enumerate(users, start=1):
+        username = f"@{user.username}" if user.username else str(user.user_id)
+        lines.append(f"{idx}. {username}")
+
+    text = "\n".join(lines)
+
+    # Разбиваем на части по 4000 символов, чтобы не превысить лимит Telegram
+    chunk_size = 4000
+    for i in range(0, len(text), chunk_size):
+        await message.answer(text[i:i+chunk_size])
+
+@admin_router.message(F.text == "2. Назад в меню")
+async def back_to_admin_panel_from_stats(message: types.Message):
+    await admin_panel(message)
 
 @admin_router.message(F.text == "Настройки")
 async def settings_menu(message: types.Message):
@@ -105,23 +155,6 @@ async def process_new_greeting(message: types.Message, state: FSMContext):
 @admin_router.message(F.text == "Назад в панель администратора")
 async def back_to_admin_panel(message: types.Message):
     await admin_panel(message)
-
-@admin_router.message(F.text == "Закрытые заявки")
-async def show_closed_applications(message: types.Message):
-    async with db.async_session() as session:
-        result = await session.execute(
-            select(Application).where(Application.is_active == False))
-        applications = result.scalars().all()
-    
-    if not applications:
-        await message.answer("Нет закрытых заявок.")
-        return
-    
-    for app in applications:
-        await message.answer(
-            f"📄 Заявка №{app.id} (ЗАКРЫТА)\n👤 Имя: {app.first_name}\n"
-            f"📞 Телефон: {app.phone_number}\n🕒 Создана: {app.created_at}\n"
-            f"🕒 Закрыта: {app.closed_at}\n👨‍💻 Админ ID: {app.admin_id}")
 
 @admin_router.callback_query(F.data.startswith(('take_', 'close_')))
 async def process_callback(callback: types.CallbackQuery):
