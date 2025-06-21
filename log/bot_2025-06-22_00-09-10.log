@@ -1,0 +1,1 @@
+2025-06-22 00:09:10,180 - root - ERROR - Ошибка: Multiple exceptions: [Errno 61] Connect call failed ('::1', 5432, 0, 0), [Errno 61] Connect call failed ('127.0.0.1', 5432)

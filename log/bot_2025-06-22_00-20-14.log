@@ -1,0 +1,10 @@
+2025-06-22 00:20:14,726 - root - INFO - Бот запущен
+2025-06-22 00:20:14,727 - aiogram.dispatcher - INFO - Start polling
+2025-06-22 00:20:15,219 - aiogram.dispatcher - INFO - Run polling for bot @stavich_bot id=6899209881 - 'Дед Ставыч'
+2025-06-22 00:20:19,707 - aiogram.event - INFO - Update id=824225285 is handled. Duration 507 ms by bot id=6899209881
+2025-06-22 00:20:21,312 - aiogram.event - INFO - Update id=824225286 is handled. Duration 622 ms by bot id=6899209881
+2025-06-22 00:20:27,885 - aiogram.event - INFO - Update id=824225287 is handled. Duration 177 ms by bot id=6899209881
+2025-06-22 00:25:13,718 - aiogram.event - INFO - Update id=824225288 is handled. Duration 440 ms by bot id=6899209881
+2025-06-22 00:26:04,410 - aiogram.dispatcher - WARNING - Received SIGINT signal
+2025-06-22 00:26:04,414 - aiogram.dispatcher - INFO - Polling stopped for bot @stavich_bot id=6899209881 - 'Дед Ставыч'
+2025-06-22 00:26:04,415 - aiogram.dispatcher - INFO - Polling stopped

@@ -1,0 +1,28 @@
+2025-06-22 00:26:07,732 - root - INFO - Бот запущен
+2025-06-22 00:26:07,733 - aiogram.dispatcher - INFO - Start polling
+2025-06-22 00:26:08,214 - aiogram.dispatcher - INFO - Run polling for bot @stavich_bot id=6899209881 - 'Дед Ставыч'
+2025-06-22 00:26:22,227 - aiogram.event - INFO - Update id=824225289 is handled. Duration 783 ms by bot id=6899209881
+2025-06-22 00:26:31,718 - aiogram.event - INFO - Update id=824225290 is handled. Duration 1042 ms by bot id=6899209881
+2025-06-22 00:26:35,359 - aiogram.event - INFO - Update id=824225291 is handled. Duration 786 ms by bot id=6899209881
+2025-06-22 00:26:38,314 - aiogram.event - INFO - Update id=824225292 is handled. Duration 681 ms by bot id=6899209881
+2025-06-22 00:26:41,733 - aiogram.event - INFO - Update id=824225293 is handled. Duration 750 ms by bot id=6899209881
+2025-06-22 00:27:09,789 - aiogram.event - INFO - Update id=824225294 is handled. Duration 187 ms by bot id=6899209881
+2025-06-22 00:27:14,231 - aiogram.event - INFO - Update id=824225295 is handled. Duration 631 ms by bot id=6899209881
+2025-06-22 00:27:16,813 - asyncio - ERROR - Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x106981090>
+2025-06-22 00:27:16,814 - asyncio - ERROR - Unclosed connector
+connections: ['deque([(<aiohttp.client_proto.ResponseHandler object at 0x10695a390>, 36174.144467833)])']
+connector: <aiohttp.connector.TCPConnector object at 0x106980cd0>
+2025-06-22 00:27:16,976 - aiogram.event - INFO - Update id=824225296 is handled. Duration 952 ms by bot id=6899209881
+2025-06-22 00:27:18,113 - asyncio - ERROR - Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x1064fdd10>
+2025-06-22 00:27:18,114 - asyncio - ERROR - Unclosed connector
+connections: ['deque([(<aiohttp.client_proto.ResponseHandler object at 0x10695a030>, 36175.444976166)])']
+connector: <aiohttp.connector.TCPConnector object at 0x106960c30>
+2025-06-22 00:27:18,278 - aiogram.event - INFO - Update id=824225297 is handled. Duration 1042 ms by bot id=6899209881
+2025-06-22 00:27:18,716 - aiogram.event - INFO - Update id=824225298 is handled. Duration 388 ms by bot id=6899209881
+2025-06-22 00:28:02,087 - aiogram.dispatcher - WARNING - Received SIGINT signal
+2025-06-22 00:28:02,089 - aiogram.dispatcher - INFO - Polling stopped for bot @stavich_bot id=6899209881 - 'Дед Ставыч'
+2025-06-22 00:28:02,089 - aiogram.dispatcher - INFO - Polling stopped
+2025-06-22 00:28:02,424 - asyncio - ERROR - Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x1064ff4d0>

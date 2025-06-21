@@ -42,7 +42,7 @@ async def start(message: types.Message, state: FSMContext):
         )
 
         # Уведомляем админов о новом пользователе
-        for admin_id in config.ADMIN_IDS:
+        for admin_id in config.MAIN_ADMIN_ID:
             try:
                 await bot.send_message(
                     chat_id=admin_id,

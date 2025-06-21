@@ -16,6 +16,7 @@ from settings_manager import get_setting, set_setting  # Импорт менед
 # Создаем роутер
 admin_router = Router()
 
+
 # FSM состояния для настроек
 class SettingsStates(StatesGroup):
     waiting_for_greeting = State()
@@ -46,6 +47,10 @@ async def admin_panel(message: types.Message):
 
 @admin_router.message(F.text == "Активные заявки")
 async def show_active_applications(message: types.Message):
+    if message.from_user.id not in config.ADMIN_IDS:
+        await message.answer("У вас нет доступа к этой команде.")
+        return
+    
     async with db.async_session() as session:
         result = await session.execute(
             select(Application).where(Application.is_active == True))
@@ -64,28 +69,66 @@ async def show_active_applications(message: types.Message):
         
         await message.answer(
             f"📄 Заявка №{app.id}\n👤 Имя: {app.first_name}\n"
-            f"📞 Телефон: {app.phone_number}\n🕒 Создана: {app.created_at}\n"
+            f"📞 Телефон: {app.phone_number}\n🕒 Создана: {app.created_at} (МСК)\n"
             f"🔹 Статус: {status}", reply_markup=keyboard)
 
 @admin_router.message(F.text == "Закрытые заявки")
 async def show_closed_applications(message: types.Message):
+    if message.from_user.id not in config.ADMIN_IDS:
+        await message.answer("У вас нет доступа к этой команде.")
+        return
+    
     async with db.async_session() as session:
+        # Получаем заявки, отсортированные по дате закрытия (сначала новые)
         result = await session.execute(
-            select(Application).where(Application.is_active == False))
+            select(Application)
+            .where(Application.is_active == False)
+            .order_by(Application.closed_at.desc())  # Сортировка от новых к старым
+        )
         applications = result.scalars().all()
     
     if not applications:
         await message.answer("Нет закрытых заявок.")
         return
     
+    # Форматируем заявки в строки
+    app_lines = []
     for app in applications:
-        await message.answer(
-            f"📄 Заявка №{app.id} (ЗАКРЫТА)\n👤 Имя: {app.first_name}\n"
-            f"📞 Телефон: {app.phone_number}\n🕒 Создана: {app.created_at}\n"
-            f"🕒 Закрыта: {app.closed_at}\n👨‍💻 Админ ID: {app.admin_id}")
+        app_lines.append(
+            f"📄 Заявка №{app.id} (ЗАКРЫТА)\n"
+            f"👤 Имя: {app.first_name}\n"
+            f"📞 Телефон: {app.phone_number}\n"
+            f"🕒 Создана: {app.created_at} (МСК)\n"
+            f"🕒 Закрыта: {app.closed_at} (МСК)\n"
+            f"👨‍💻 Админ ID: {app.admin_id}\n"
+            "━━━━━━━━━━━━━━━━━━━━"
+        )
+    
+    # Ограничиваем количество заявок (30 последних)
+    if len(app_lines) > 30:
+        app_lines = app_lines[:30]
+        header = "Последние 30 закрытых заявок:\n\n"
+    else:
+        header = "Все закрытые заявки:\n\n"
+    
+    full_text = header + "\n\n".join(app_lines)
+    
+    # Разбиваем текст на части по 4000 символов
+    chunk_size = 4000
+    for i in range(0, len(full_text), chunk_size):
+        chunk = full_text[i:i+chunk_size]
+        # Находим последний перенос строки для аккуратного обрыва
+        last_newline = chunk.rfind('\n')
+        if last_newline != -1 and i + chunk_size < len(full_text):
+            chunk = chunk[:last_newline]
+        await message.answer(chunk)
 
 @admin_router.message(F.text == "Статистика")
 async def statistics_menu(message: types.Message):
+    if message.from_user.id not in config.ADMIN_IDS:
+        await message.answer("У вас нет доступа к этой команде.")
+        return
+    
     keyboard = ReplyKeyboardMarkup(
         keyboard=[
             [KeyboardButton(text="1. Получить список пользователей")],
@@ -98,12 +141,25 @@ async def statistics_menu(message: types.Message):
 
 @admin_router.message(F.text == "1. Получить список пользователей")
 async def send_user_list(message: types.Message):
+    if message.from_user.id not in config.MAIN_ADMIN_ID:
+        await message.answer("У вас нет доступа к этой команде.")
+        return
+    
     async with db.async_session() as session:
         result = await session.execute(select(User))
         users = result.scalars().all()
 
     if not users:
-        await message.answer("Пользователи не найдены.")
+        # Создаем клавиатуру заново
+        keyboard = ReplyKeyboardMarkup(
+            keyboard=[
+                [KeyboardButton(text="1. Получить список пользователей")],
+                [KeyboardButton(text="Назад в панель администратора")]
+            ],
+            resize_keyboard=True,
+            one_time_keyboard=False  # Важно: отключаем исчезновение
+        )
+        await message.answer("Пользователи не найдены.", reply_markup=keyboard)
         return
 
     lines = []
@@ -113,28 +169,54 @@ async def send_user_list(message: types.Message):
 
     text = "\n".join(lines)
 
-    # Разбиваем на части по 4000 символов, чтобы не превысить лимит Telegram
+    # Разбиваем на части по 4000 символов
     chunk_size = 4000
     for i in range(0, len(text), chunk_size):
         await message.answer(text[i:i+chunk_size])
 
-@admin_router.message(F.text == "2. Назад в меню")
-async def back_to_admin_panel_from_stats(message: types.Message):
-    await admin_panel(message)
+    # Отправляем клавиатуру ПОСЛЕ списка пользователей
+    keyboard = ReplyKeyboardMarkup(
+        keyboard=[
+            [KeyboardButton(text="1. Получить список пользователей")],
+            #[KeyboardButton(text="2. Получить полный log консоли (last_time.log)")],
+            [KeyboardButton(text="Назад в панель администратора")]
+        ],
+        resize_keyboard=True,
+        one_time_keyboard=False  # Ключевое изменение
+    )
+    await message.answer("Выберите действие:", reply_markup=keyboard)
+
 
 @admin_router.message(F.text == "Настройки")
 async def settings_menu(message: types.Message):
+    if message.from_user.id not in config.MAIN_ADMIN_ID:
+        await message.answer("У вас нет доступа к этой команде.")
+        return
+    
     keyboard = ReplyKeyboardMarkup(
         keyboard=[
             [KeyboardButton(text="Изменить приветственное сообщение")],
+            [KeyboardButton(text="Добавить администратора")],
             [KeyboardButton(text="Назад в панель администратора")]
         ],
         resize_keyboard=True
     )
     await message.answer("Меню настроек:", reply_markup=keyboard)
 
+@admin_router.message(F.text == "Добавить администратора")
+async def add_admin(message: types.Message):
+    if message.from_user.id not in config.MAIN_ADMIN_ID:
+        await message.answer("У вас нет доступа к этой команде.")
+        return
+    
+    await message.answer("В разработке...")
+
 @admin_router.message(F.text == "Изменить приветственное сообщение")
 async def change_greeting_start(message: types.Message, state: FSMContext):
+    if message.from_user.id not in config.ADMIN_IDS:
+        await message.answer("У вас нет доступа к этой команде.")
+        return
+    
     current_greeting = get_setting("greeting_message")
     await message.answer(f"Текущее приветственное сообщение:\n\n{current_greeting}\n\nВведите новое:")
     await state.set_state(SettingsStates.waiting_for_greeting)
