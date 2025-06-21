@@ -139,9 +139,16 @@ async def statistics_menu(message: types.Message):
     )
     await message.answer("Меню статистики:", reply_markup=keyboard)
 
+@admin_router.message(F.text == "2. Назад в меню")
+async def back_to_admin_panel_from_stats(message: types.Message):
+    if message.from_user.id not in config.ADMIN_IDS:
+        await message.answer("У вас нет доступа к этой команде.")
+        return
+    await admin_panel(message)
+
 @admin_router.message(F.text == "1. Получить список пользователей")
 async def send_user_list(message: types.Message):
-    if message.from_user.id not in config.MAIN_ADMIN_ID:
+    if message.from_user.id != config.MAIN_ADMIN_ID:
         await message.answer("У вас нет доступа к этой команде.")
         return
     
@@ -150,14 +157,13 @@ async def send_user_list(message: types.Message):
         users = result.scalars().all()
 
     if not users:
-        # Создаем клавиатуру заново
         keyboard = ReplyKeyboardMarkup(
             keyboard=[
                 [KeyboardButton(text="1. Получить список пользователей")],
-                [KeyboardButton(text="Назад в панель администратора")]
+                [KeyboardButton(text="2. Назад в меню")]
             ],
             resize_keyboard=True,
-            one_time_keyboard=False  # Важно: отключаем исчезновение
+            one_time_keyboard=False
         )
         await message.answer("Пользователи не найдены.", reply_markup=keyboard)
         return
@@ -189,7 +195,7 @@ async def send_user_list(message: types.Message):
 
 @admin_router.message(F.text == "Настройки")
 async def settings_menu(message: types.Message):
-    if message.from_user.id not in config.MAIN_ADMIN_ID:
+    if message.from_user.id != config.MAIN_ADMIN_ID:
         await message.answer("У вас нет доступа к этой команде.")
         return
     
@@ -205,7 +211,7 @@ async def settings_menu(message: types.Message):
 
 @admin_router.message(F.text == "Добавить администратора")
 async def add_admin(message: types.Message):
-    if message.from_user.id not in config.MAIN_ADMIN_ID:
+    if message.from_user.id != config.MAIN_ADMIN_ID:
         await message.answer("У вас нет доступа к этой команде.")
         return
     
