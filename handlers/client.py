@@ -42,10 +42,10 @@ async def start(message: types.Message, state: FSMContext):
         )
 
         # Уведомляем админов о новом пользователе
-        for admin_id in config.MAIN_ADMIN_ID:
+        if message.from_user.id != config.MAIN_ADMIN_ID:
             try:
                 await bot.send_message(
-                    chat_id=admin_id,
+                    chat_id=config.MAIN_ADMIN_ID,
                     text=f"👤 Пользователь @{message.from_user.username or message.from_user.id} "
                          f"({message.from_user.first_name}) начал работу с ботом."
                 )
