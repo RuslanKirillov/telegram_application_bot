@@ -1,0 +1,6 @@
+2025-07-23 20:30:04,456 - root - INFO - Бот запущен
+2025-07-23 20:30:04,459 - aiogram.dispatcher - INFO - Start polling
+2025-07-23 20:30:05,072 - aiogram.dispatcher - INFO - Run polling for bot @sadasddaaaa1_bot id=5865447463 - 'monovot'
+2025-07-23 21:15:04,390 - aiogram.dispatcher - WARNING - Received SIGINT signal
+2025-07-23 21:15:04,401 - aiogram.dispatcher - INFO - Polling stopped for bot @sadasddaaaa1_bot id=5865447463 - 'monovot'
+2025-07-23 21:15:04,402 - aiogram.dispatcher - INFO - Polling stopped

@@ -1,0 +1,12 @@
+2025-06-18 14:00:05,550 - root - INFO - Бот запущен
+2025-06-18 14:00:05,551 - aiogram.dispatcher - INFO - Start polling
+2025-06-18 14:00:06,479 - aiogram.dispatcher - INFO - Run polling for bot @stavich_bot id=6899209881 - 'Дед Ставыч'
+2025-06-18 14:00:07,967 - aiogram.event - INFO - Update id=824225234 is handled. Duration 1292 ms by bot id=6899209881
+2025-06-18 14:00:14,408 - aiogram.event - INFO - Update id=824225235 is handled. Duration 508 ms by bot id=6899209881
+2025-06-18 14:55:14,398 - aiogram.event - INFO - Update id=824225236 is handled. Duration 1509 ms by bot id=6899209881
+2025-06-18 14:55:43,369 - aiogram.event - INFO - Update id=824225237 is handled. Duration 869 ms by bot id=6899209881
+2025-06-18 14:57:11,208 - aiogram.dispatcher - WARNING - Received SIGINT signal
+2025-06-18 14:57:11,212 - aiogram.dispatcher - INFO - Polling stopped for bot @stavich_bot id=6899209881 - 'Дед Ставыч'
+2025-06-18 14:57:11,212 - aiogram.dispatcher - INFO - Polling stopped
+2025-06-18 14:57:11,615 - asyncio - ERROR - Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x1062ede50>

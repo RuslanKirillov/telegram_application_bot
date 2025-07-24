@@ -1,0 +1,28 @@
+2025-07-23 21:21:33,885 - root - INFO - Бот запущен
+2025-07-23 21:21:33,886 - aiogram.dispatcher - INFO - Start polling
+2025-07-23 21:21:34,423 - aiogram.dispatcher - INFO - Run polling for bot @sadasddaaaa1_bot id=5865447463 - 'monovot'
+2025-07-23 21:21:40,705 - aiogram.event - INFO - Update id=440686369 is handled. Duration 507 ms by bot id=5865447463
+2025-07-23 21:21:43,208 - aiogram.event - INFO - Update id=440686370 is handled. Duration 253 ms by bot id=5865447463
+2025-07-23 21:21:45,452 - aiogram.event - INFO - Update id=440686371 is handled. Duration 1006 ms by bot id=5865447463
+2025-07-23 21:21:47,318 - aiogram.event - INFO - Update id=440686372 is handled. Duration 848 ms by bot id=5865447463
+2025-07-23 21:21:53,845 - aiogram.event - INFO - Update id=440686373 is handled. Duration 177 ms by bot id=5865447463
+2025-07-23 21:22:01,515 - aiogram.event - INFO - Update id=440686374 is handled. Duration 188 ms by bot id=5865447463
+2025-07-23 21:22:02,853 - aiogram.event - INFO - Update id=440686375 is handled. Duration 177 ms by bot id=5865447463
+2025-07-23 21:22:04,363 - aiogram.event - INFO - Update id=440686376 is handled. Duration 187 ms by bot id=5865447463
+2025-07-23 21:22:05,341 - aiogram.event - INFO - Update id=440686377 is handled. Duration 179 ms by bot id=5865447463
+2025-07-23 21:22:10,110 - aiogram.event - INFO - Update id=440686378 is handled. Duration 182 ms by bot id=5865447463
+2025-07-23 21:22:15,016 - aiogram.event - INFO - Update id=440686379 is handled. Duration 677 ms by bot id=5865447463
+2025-07-23 21:22:20,277 - aiogram.event - INFO - Update id=440686380 is handled. Duration 702 ms by bot id=5865447463
+2025-07-23 21:22:21,954 - aiogram.event - INFO - Update id=440686381 is handled. Duration 292 ms by bot id=5865447463
+2025-07-23 21:22:25,679 - aiogram.event - INFO - Update id=440686382 is handled. Duration 191 ms by bot id=5865447463
+2025-07-23 21:22:26,782 - aiogram.event - INFO - Update id=440686383 is handled. Duration 314 ms by bot id=5865447463
+2025-07-23 21:22:28,490 - aiogram.event - INFO - Update id=440686384 is handled. Duration 210 ms by bot id=5865447463
+2025-07-23 21:22:31,351 - aiogram.event - INFO - Update id=440686385 is handled. Duration 542 ms by bot id=5865447463
+2025-07-23 21:22:35,111 - aiogram.event - INFO - Update id=440686386 is handled. Duration 283 ms by bot id=5865447463
+2025-07-23 21:22:38,834 - aiogram.event - INFO - Update id=440686387 is handled. Duration 176 ms by bot id=5865447463
+2025-07-23 21:22:40,318 - aiogram.event - INFO - Update id=440686388 is handled. Duration 179 ms by bot id=5865447463
+2025-07-23 21:22:43,214 - aiogram.event - INFO - Update id=440686389 is handled. Duration 182 ms by bot id=5865447463
+2025-07-23 21:22:43,804 - aiogram.event - INFO - Update id=440686390 is handled. Duration 191 ms by bot id=5865447463
+2025-07-23 21:27:12,920 - aiogram.dispatcher - WARNING - Received SIGINT signal
+2025-07-23 21:27:12,925 - aiogram.dispatcher - INFO - Polling stopped for bot @sadasddaaaa1_bot id=5865447463 - 'monovot'
+2025-07-23 21:27:12,925 - aiogram.dispatcher - INFO - Polling stopped

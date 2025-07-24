@@ -1,0 +1,25 @@
+2025-07-23 21:15:25,957 - root - INFO - Бот запущен
+2025-07-23 21:15:25,959 - aiogram.dispatcher - INFO - Start polling
+2025-07-23 21:15:26,502 - aiogram.dispatcher - INFO - Run polling for bot @sadasddaaaa1_bot id=5865447463 - 'monovot'
+2025-07-23 21:15:39,793 - aiogram.event - INFO - Update id=440686354 is handled. Duration 1297 ms by bot id=5865447463
+2025-07-23 21:15:50,563 - aiogram.event - INFO - Update id=440686355 is handled. Duration 1183 ms by bot id=5865447463
+2025-07-23 21:16:24,091 - aiogram.event - INFO - Update id=440686356 is handled. Duration 182 ms by bot id=5865447463
+2025-07-23 21:16:26,785 - aiogram.event - INFO - Update id=440686357 is handled. Duration 655 ms by bot id=5865447463
+2025-07-23 21:16:38,982 - asyncio - ERROR - Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x112e84f50>
+2025-07-23 21:16:38,983 - asyncio - ERROR - Unclosed connector
+connections: ['deque([(<aiohttp.client_proto.ResponseHandler object at 0x112e5a030>, 3886.806098666)])']
+connector: <aiohttp.connector.TCPConnector object at 0x112e84b90>
+2025-07-23 21:16:39,241 - aiogram.event - INFO - Update id=440686358 is handled. Duration 2094 ms by bot id=5865447463
+2025-07-23 21:16:49,903 - aiogram.event - INFO - Update id=440686359 is handled. Duration 533 ms by bot id=5865447463
+2025-07-23 21:16:57,438 - asyncio - ERROR - Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x112e851d0>
+2025-07-23 21:16:57,439 - asyncio - ERROR - Unclosed connector
+connections: ['deque([(<aiohttp.client_proto.ResponseHandler object at 0x112e583b0>, 3905.262908625)])']
+connector: <aiohttp.connector.TCPConnector object at 0x112e683e0>
+2025-07-23 21:16:57,958 - aiogram.event - INFO - Update id=440686360 is handled. Duration 1991 ms by bot id=5865447463
+2025-07-23 21:18:02,968 - aiogram.dispatcher - WARNING - Received SIGINT signal
+2025-07-23 21:18:02,973 - aiogram.dispatcher - INFO - Polling stopped for bot @sadasddaaaa1_bot id=5865447463 - 'monovot'
+2025-07-23 21:18:02,973 - aiogram.dispatcher - INFO - Polling stopped
+2025-07-23 21:18:03,365 - asyncio - ERROR - Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x1126ef250>

@@ -1,0 +1,4 @@
+2025-07-23 21:18:09,557 - root - INFO - Бот запущен
+2025-07-23 21:18:09,559 - aiogram.dispatcher - INFO - Start polling
+2025-07-23 21:18:09,972 - aiogram.dispatcher - INFO - Polling stopped
+2025-07-23 21:18:10,225 - root - ERROR - Ошибка: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Connection reset by peer]
