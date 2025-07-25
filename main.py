@@ -7,7 +7,7 @@ from aiogram.fsm.storage.memory import MemoryStorage
 from config import config
 from database.db import db
 from handlers import admin_router, client_router
-
+#testCode
 # Создаем папку для логов, если её нет
 os.makedirs('log', exist_ok=True)
 
