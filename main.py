@@ -12,7 +12,7 @@ from handlers import admin_router, client_router
 os.makedirs('log', exist_ok=True)
 
 # Формируем имя файла с датой, например: bot_2025-06-16.log
-log_filename = datetime.now().strftime('log/bot_%Y-%m-%d_%H-%M-%S.log')
+log_filename = datetime.now().strftime('/root/ContainerLog/bot_%Y-%m-%d_%H-%M-%S.log')
 
 # Настройка логгера
 logger = logging.getLogger()
