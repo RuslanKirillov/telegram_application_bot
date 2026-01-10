@@ -1,0 +1,25 @@
+2026-01-07 14:46:02,824 - root - INFO - Бот запущен
+2026-01-07 14:46:02,826 - aiogram.dispatcher - INFO - Start polling
+2026-01-07 14:46:03,642 - aiogram.dispatcher - INFO - Run polling for bot @vdk_sneakers_bot id=6656537367 - 'Кроссовки Владивосток'
+2026-01-07 14:46:05,343 - aiogram.event - INFO - Update id=133395869 is handled. Duration 1459 ms by bot id=6656537367
+2026-01-07 14:46:07,727 - aiogram.event - INFO - Update id=133395870 is handled. Duration 392 ms by bot id=6656537367
+2026-01-07 14:46:22,785 - aiogram.event - INFO - Update id=133395871 is handled. Duration 1090 ms by bot id=6656537367
+2026-01-07 14:46:48,225 - aiogram.event - INFO - Update id=133395872 is handled. Duration 1071 ms by bot id=6656537367
+2026-01-07 14:47:03,548 - aiogram.event - INFO - Update id=133395873 is handled. Duration 608 ms by bot id=6656537367
+2026-01-07 14:47:07,714 - aiogram.event - INFO - Update id=133395874 is handled. Duration 600 ms by bot id=6656537367
+2026-01-07 14:47:34,160 - aiogram.event - INFO - Update id=133395875 is handled. Duration 674 ms by bot id=6656537367
+2026-01-07 14:47:39,909 - aiogram.event - INFO - Update id=133395876 is handled. Duration 249 ms by bot id=6656537367
+2026-01-07 14:47:55,982 - aiogram.event - INFO - Update id=133395877 is handled. Duration 793 ms by bot id=6656537367
+2026-01-07 14:48:07,558 - aiogram.event - INFO - Update id=133395878 is handled. Duration 281 ms by bot id=6656537367
+2026-01-07 14:48:09,592 - aiogram.event - INFO - Update id=133395879 is handled. Duration 239 ms by bot id=6656537367
+2026-01-07 14:48:13,330 - aiogram.event - INFO - Update id=133395880 is handled. Duration 785 ms by bot id=6656537367
+2026-01-07 14:48:17,837 - asyncio - ERROR - Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0xffff7c381640>
+2026-01-07 14:48:17,838 - asyncio - ERROR - Unclosed connector
+connections: ['deque([(<aiohttp.client_proto.ResponseHandler object at 0xffff7c37f700>, 3326.891647347)])']
+connector: <aiohttp.connector.TCPConnector object at 0xffff7c381bb0>
+2026-01-07 14:48:19,164 - aiogram.event - INFO - Update id=133395881 is handled. Duration 4180 ms by bot id=6656537367
+2026-01-07 14:48:22,735 - aiogram.event - INFO - Update id=133395882 is handled. Duration 852 ms by bot id=6656537367
+2026-01-07 14:57:42,686 - aiogram.dispatcher - WARNING - Received SIGTERM signal
+2026-01-07 14:57:42,691 - aiogram.dispatcher - INFO - Polling stopped for bot @vdk_sneakers_bot id=6656537367 - 'Кроссовки Владивосток'
+2026-01-07 14:57:42,692 - aiogram.dispatcher - INFO - Polling stopped

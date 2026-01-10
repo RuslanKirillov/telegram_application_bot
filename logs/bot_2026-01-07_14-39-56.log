@@ -1,0 +1,10 @@
+2026-01-07 14:40:01,794 - root - INFO - Бот запущен
+2026-01-07 14:40:01,797 - aiogram.dispatcher - INFO - Start polling
+2026-01-07 14:40:02,735 - aiogram.dispatcher - INFO - Run polling for bot @vdk_sneakers_bot id=6656537367 - 'Кроссовки Владивосток'
+2026-01-07 14:40:04,840 - aiogram.event - INFO - Update id=133395865 is handled. Duration 1853 ms by bot id=6656537367
+2026-01-07 14:40:27,679 - aiogram.event - INFO - Update id=133395866 is handled. Duration 1982 ms by bot id=6656537367
+2026-01-07 14:40:45,147 - aiogram.event - INFO - Update id=133395867 is handled. Duration 264 ms by bot id=6656537367
+2026-01-07 14:42:54,606 - aiogram.event - INFO - Update id=133395868 is handled. Duration 1045 ms by bot id=6656537367
+2026-01-07 14:45:50,435 - aiogram.dispatcher - WARNING - Received SIGTERM signal
+2026-01-07 14:45:50,439 - aiogram.dispatcher - INFO - Polling stopped for bot @vdk_sneakers_bot id=6656537367 - 'Кроссовки Владивосток'
+2026-01-07 14:45:50,439 - aiogram.dispatcher - INFO - Polling stopped
